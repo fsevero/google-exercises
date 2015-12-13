@@ -7,7 +7,7 @@
 # http://code.google.com/edu/languages/google-python-class/
 
 # Additional basic string exercises
-
+from math import ceil
 
 # D. verbing
 # Given a string, if its length is at least 3,
@@ -17,8 +17,9 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-    # +++your code here+++
-    return
+    if len(s) < 3:
+        return s
+    return s + 'ing' if len(s) >= 3 and s[-3:] != 'ing' else s + 'ly'
 
 
 # E. not_bad
@@ -30,8 +31,10 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    # +++your code here+++
-    return
+    not_index = s.find('not')
+    bad_index = s.find('bad')
+    bool_expression = not_index == -1 or bad_index == -1 or bad_index < not_index
+    return s if bool_expression else s[:not_index] + 'good' + s[bad_index + 3:]
 
 
 # F. front_back
@@ -42,8 +45,9 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    # +++your code here+++
-    return
+    index_a = ceil(len(a) / 2)
+    index_b = ceil(len(b) / 2)
+    return a[:index_a] + b[:index_b] + a[index_a:] + b[index_b:]
 
 
 # Simple provided test() function used in main() to print
