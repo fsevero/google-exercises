@@ -72,7 +72,7 @@ def printWords(words):
     for word in words:
         print("%s %s" % word)
 
-        
+
 ###
 
 # This basic command line argument parsing code is provided and
